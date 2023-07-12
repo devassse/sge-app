@@ -76,14 +76,12 @@
 
       <q-img
         class="absolute-top"
-        src="https://cdn.quasar.dev/img/material.png"
+        src="../assets/cover/cover.jpeg"
         style="height: 120px"
       >
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="46px" class="q-mb-sm">
-            <img
-              src="http://joaodevson.keomagroup.com/assets/imgs/profile.jpg"
-            />
+            <img src="../assets/cover/user.png" />
           </q-avatar>
           <div class="text-weight-bold">João Devson Mucavel</div>
           <div>@devasse</div>

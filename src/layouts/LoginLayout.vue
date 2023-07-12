@@ -25,7 +25,12 @@
         </q-input>
 
         <q-separator size="2.2rem" color="blue-1" />
-        <q-btn color="primary" label="Log In" style="width: 100%" />
+        <q-btn
+          color="primary"
+          label="Log In"
+          style="width: 100%"
+          to="/dashboard"
+        />
       </div>
     </div>
   </q-layout>
@@ -35,12 +40,15 @@
 .login-page {
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 15vh;
 }
 .logo {
   display: flex;
   justify-content: center;
   margin-bottom: 2.2rem;
+}
+.logo img {
+  width: 120px;
 }
 .login-form {
   width: 460px;

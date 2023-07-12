@@ -3,38 +3,35 @@
     <div>
       <div class="row">
         <div class="col-4">
-          <div>
-            <span class="absolute q-pa-md chart-label">Índice de Registos</span>
-          </div>
           <apexchart
             type="area"
-            height="200"
+            height="300"
             :options="chartOptionsNew"
             :series="seriesNew"
           ></apexchart>
         </div>
         <div class="col-4">
-          <div>
-            <span class="absolute q-pa-md chart-label">% Novas Empresas</span>
-          </div>
           <apexchart
             type="area"
-            height="200"
+            height="300"
             :options="chartOptionsMedium"
             :series="seriesMedium"
           ></apexchart>
         </div>
         <div class="col-4">
-          <div>
-            <span class="absolute q-pa-md chart-label"
-              >Registos de Empresas</span
-            >
-          </div>
           <apexchart
             type="area"
-            height="200"
+            height="300"
             :options="chartOptions"
             :series="series"
+          ></apexchart>
+        </div>
+        <div class="col-12 q-mt-lg">
+          <apexchart
+            type="bar"
+            height="450"
+            :options="barsOptionsNew"
+            :series="barsNew"
           ></apexchart>
         </div>
       </div>
@@ -67,6 +64,7 @@ let chartOptions = ref({
   },
   title: {
     align: "left",
+    text: "Novos Registos",
   },
   grid: {
     show: false,
@@ -104,6 +102,7 @@ let chartOptionsNew = ref({
   },
   title: {
     align: "left",
+    text: "Novos Registos",
   },
   grid: {
     show: false,
@@ -141,6 +140,7 @@ let chartOptionsMedium = ref({
   },
   title: {
     align: "left",
+    text: "% de novas Empresas",
   },
   grid: {
     show: false,
@@ -170,7 +170,6 @@ let barsOptionsNew = ref({
   },
   plotOptions: {
     bar: {
-      borderRadius: 10,
       dataLabels: {
         position: "top", // top, center, bottom
       },
@@ -241,13 +240,8 @@ let barsOptionsNew = ref({
     },
   },
   title: {
-    text: "Monthly Inflation in Argentina, 2002",
-    floating: true,
-    offsetY: 330,
-    align: "center",
-    style: {
-      color: "#444",
-    },
+    text: "Niveis de registos por mês no ano de 2023",
+    align: "left",
   },
 });
 </script>

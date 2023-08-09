@@ -44,6 +44,8 @@
 <script setup>
 import { ref } from "vue";
 
+let stars = ref();
+
 let employees = ref([
   {
     id: 1,
@@ -80,8 +82,7 @@ let employees = ref([
 <style scoped lang="scss">
 .add-btn {
   position: relative;
-  left: 81vw;
-  right: 0;
+  left: 94%;
   top: 4px;
 }
 .add-btn:hover {

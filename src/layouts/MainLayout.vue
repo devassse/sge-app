@@ -14,7 +14,7 @@
         <q-toolbar-title> </q-toolbar-title>
 
         <div style="cursor: pointer">
-          <q-icon name="logout" size="22px" />
+          <q-icon name="logout" size="22px" to="/login" />
         </div>
       </q-toolbar>
       <div>

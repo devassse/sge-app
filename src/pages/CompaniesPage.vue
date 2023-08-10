@@ -101,7 +101,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import axios from "axios";
 
 let companiesListing = ref(true);
 let companiesForm = ref(false);
@@ -141,6 +142,15 @@ const clearFields = () => {
   companydescription.value = "";
   stars.value = "";
 };
+
+const getCompanies = async () => {
+  const response = await axios.get("http://localhost:8080/api/company");
+  console.log("Companies", response);
+};
+
+onMounted(() => {
+  getCompanies();
+});
 
 let companies = ref([
   {

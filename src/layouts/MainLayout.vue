@@ -73,6 +73,13 @@
 
             <q-item-section> Funcionários </q-item-section>
           </q-item>
+          <q-item clickable v-ripple exact to="/admin">
+            <q-item-section avatar>
+              <q-icon name="settings" />
+            </q-item-section>
+
+            <q-item-section> Administração </q-item-section>
+          </q-item>
         </q-list>
       </q-scroll-area>
 

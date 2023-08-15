@@ -4,6 +4,10 @@
       <q-btn round color="black" icon="add" class="add-btn" />
     </div>
     <div class="row">
+      <div class="col-sm-12" v-if="employees.length == 0">
+        <h3 class="text-center">:-)</h3>
+        <h4 class="text-center gray-2">Sem nenhum Funcionário Registado</h4>
+      </div>
       <div
         class="col-3 q-pa-sm"
         v-for="employee of employees"
@@ -46,38 +50,7 @@ import { ref } from "vue";
 
 let stars = ref();
 
-let employees = ref([
-  {
-    id: 1,
-    name: "Manuel José de Almeida",
-    type: "Administrador",
-    description: "Lorem ipsum dolor sit amet redat, dolor sit amet redat.",
-  },
-  {
-    id: 2,
-    name: "Maria Jorge",
-    type: "Managment and Investigation",
-    description: "Lorem ipsum dolor sit amet redat, rem ipsum dolor sit ame.",
-  },
-  {
-    id: 3,
-    name: "Bento Nhantumbo",
-    type: "Financial Institution",
-    description: "Lorem ipsum dolor sit amet redat dolor sit amet redat",
-  },
-  {
-    id: 4,
-    name: "Mario Sergio",
-    type: "Transportation and Logistic",
-    description: "Lorem ipsum dolor sit amet redat rem ipsum dolor sit ame",
-  },
-  {
-    id: 5,
-    name: "Freya Abdul Alibah",
-    type: "Popular and Entertaiment",
-    description: "Lorem ipsum dolor sit amet redat rem ipsum dolor sit ame",
-  },
-]);
+let employees = ref([]);
 </script>
 <style scoped lang="scss">
 .add-btn {

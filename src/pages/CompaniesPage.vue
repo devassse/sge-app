@@ -135,7 +135,7 @@ const closeAddCompany = () => {
   clearFields();
 };
 
-const saveCompany = () => {
+const saveCompany = async () => {
   let params = {
     name: companyname.value,
     slogan: companyslogan.value,
@@ -143,8 +143,11 @@ const saveCompany = () => {
     stars: stars.value,
   };
 
-  console.log("Company", params);
+  await axios.post("http://localhost:8080/company", params);
+
   clearFields();
+  closeAddCompany();
+  getCompanies();
 };
 
 const clearFields = () => {

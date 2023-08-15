@@ -58,7 +58,7 @@ const doLogin = () => {
 .login-page {
   display: flex;
   justify-content: center;
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 .logo {
   display: flex;

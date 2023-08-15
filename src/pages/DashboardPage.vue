@@ -64,7 +64,7 @@ let chartOptions = ref({
   },
   title: {
     align: "left",
-    text: "Novos Registos",
+    text: "Relatório de Utilização",
   },
   grid: {
     show: false,

@@ -63,7 +63,16 @@
       </div>
     </div>
     <div class="row" v-show="companiesListing">
-      <div class="col-3 q-pa-sm" v-for="company of companies" :key="company.id">
+      <div class="col-sm-12" v-if="companies.length == 0">
+        <h3 class="text-center">:-)</h3>
+        <h4 class="text-center gray-2">Sem nenhuma Empresa Registada</h4>
+      </div>
+      <div
+        v-else
+        class="col-3 q-pa-sm"
+        v-for="company of companies"
+        :key="company.id"
+      >
         <q-card class="my-card" flat bordered>
           <q-img src="../assets/cover/cover.jpeg" style="height: 140px" />
           <q-card-section>

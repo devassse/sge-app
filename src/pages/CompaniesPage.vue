@@ -89,7 +89,7 @@
           </q-card-section>
 
           <q-card-section class="q-pt-none">
-            <div class="text-subtitle1">{{ company.type }}</div>
+            <div class="text-subtitle1">{{ company.slogan }}</div>
             <div class="text-caption text-grey">
               {{ company.description }}
             </div>
@@ -111,6 +111,8 @@ let companyname = ref();
 let companyslogan = ref();
 let companydescription = ref();
 let stars = ref();
+
+let companies = ref([]);
 
 const enableAddCompany = () => {
   companiesListing.value = false;
@@ -144,46 +146,13 @@ const clearFields = () => {
 };
 
 const getCompanies = async () => {
-  const response = await axios.get("http://localhost:8080/api/company");
-  console.log("Companies", response);
+  const response = await axios.get("http://localhost:8080/company");
+  companies.value = response.data;
 };
 
 onMounted(() => {
   getCompanies();
 });
-
-let companies = ref([
-  {
-    id: 1,
-    name: "Empresa de Gas",
-    type: "Extraction and Encapsulation",
-    description: "Lorem ipsum dolor sit amet redat, dolor sit amet redat.",
-  },
-  {
-    id: 2,
-    name: "ENH",
-    type: "Managment and Investigation",
-    description: "Lorem ipsum dolor sit amet redat, rem ipsum dolor sit ame.",
-  },
-  {
-    id: 3,
-    name: "Banco de Mozambique",
-    type: "Financial Institution",
-    description: "Lorem ipsum dolor sit amet redat dolor sit amet redat",
-  },
-  {
-    id: 4,
-    name: "Transportes Lalgy",
-    type: "Transportation and Logistic",
-    description: "Lorem ipsum dolor sit amet redat rem ipsum dolor sit ame",
-  },
-  {
-    id: 5,
-    name: "Feira Popular",
-    type: "Popular and Entertaiment",
-    description: "Lorem ipsum dolor sit amet redat rem ipsum dolor sit ame",
-  },
-]);
 </script>
 <style scoped lang="scss">
 .add-btn {

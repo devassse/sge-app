@@ -14,7 +14,9 @@
         <q-toolbar-title> </q-toolbar-title>
 
         <div style="cursor: pointer">
-          <q-icon name="logout" size="22px" to="/login" />
+          <q-btn rounded dense flat @click="doLogout">
+            <q-icon name="logout" size="22px" @click="doLogout" />
+          </q-btn>
         </div>
       </q-toolbar>
       <div>
@@ -95,10 +97,21 @@
   </q-layout>
 </template>
 
-<script>
+<script setup>
 import { defineComponent, ref } from "vue";
 
-const linksList = [
+const doLogout = () => {
+  window.location.replace("#/");
+  console.log("logout");
+};
+
+const leftDrawerOpen = ref(false);
+
+const toggleLeftDrawer = () => {
+  leftDrawerOpen.value = !leftDrawerOpen.value;
+};
+
+const linksList = ref([
   {
     title: "Docs",
     caption: "quasar.dev",
@@ -141,21 +154,5 @@ const linksList = [
     icon: "favorite",
     link: "https://awesome.quasar.dev",
   },
-];
-
-export default defineComponent({
-  name: "MainLayout",
-
-  setup() {
-    const leftDrawerOpen = ref(false);
-
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
-  },
-});
+]);
 </script>

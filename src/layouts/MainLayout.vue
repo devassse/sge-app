@@ -80,6 +80,13 @@
 
             <q-item-section> Administração </q-item-section>
           </q-item>
+          <q-item clickable v-ripple exact to="/reports">
+            <q-item-section avatar>
+              <q-icon name="summarize" />
+            </q-item-section>
+
+            <q-item-section> Relatórios </q-item-section>
+          </q-item>
         </q-list>
       </q-scroll-area>
 
@@ -92,8 +99,8 @@
           <q-avatar size="46px" class="q-mb-sm">
             <img src="../assets/cover/user.png" />
           </q-avatar>
-          <div class="text-weight-bold">João Devson Mucavel</div>
-          <div>@devasse</div>
+          <div class="text-weight-bold">Diolene Brito</div>
+          <div>@tamires</div>
         </div>
       </q-img>
     </q-drawer>

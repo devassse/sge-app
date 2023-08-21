@@ -82,7 +82,7 @@
         :key="company.id"
       >
         <q-card class="my-card" flat bordered>
-          <q-img src="../assets/cover/cover.jpeg" style="height: 140px" />
+          <q-img src="../assets/cover/cover.jpeg" style="height: 80px" />
           <q-btn
             class="absolute"
             flat
@@ -263,7 +263,7 @@ onMounted(() => {
 </script>
 <style scoped lang="scss">
 .my-card {
-  min-height: 350px;
+  min-height: 280px;
   overflow-y: auto;
 }
 .add-btn {

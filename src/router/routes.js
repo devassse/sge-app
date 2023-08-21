@@ -26,6 +26,10 @@ const routes = [
         path: "/admin",
         component: () => import("pages/AdminPage.vue"),
       },
+      {
+        path: "/reports",
+        component: () => import("pages/ReportsPage.vue"),
+      },
     ],
   },
 

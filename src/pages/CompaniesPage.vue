@@ -38,6 +38,45 @@
             />
           </div>
         </div>
+        <div class="row q-col-gutter-x-md">
+          <div class="col-sm-6">
+            <q-input
+              class="q-mt-sm"
+              v-model="companysaddress"
+              label="Endereço"
+              dense
+            />
+          </div>
+          <div class="col-sm-6">
+            <q-input
+              type="number"
+              class="q-mt-sm"
+              v-model="companynuit"
+              label="NUIT"
+              dense
+            />
+          </div>
+        </div>
+        <div class="row q-col-gutter-x-md">
+          <div class="col-sm-6">
+            <q-input
+              class="q-mt-sm"
+              v-model="companysemail"
+              type="email"
+              label="E-mail"
+              dense
+            />
+          </div>
+          <div class="col-sm-6">
+            <q-input
+              type="number"
+              class="q-mt-sm"
+              v-model="companyphone"
+              label="telefone"
+              dense
+            />
+          </div>
+        </div>
         <q-input
           type="textarea"
           class="q-mt-sm"

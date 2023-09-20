@@ -30,12 +30,49 @@
             />
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
+        <div class="row q-col-gutter-x-md">
+          <div class="col-sm-6">
             <q-select
+              style="margin-top: 8px"
               v-model="position"
               :options="positions"
-              label="Posição"
+              label="Profissão"
+              dense
+            />
+          </div>
+          <div class="col-sm-6">
+            <q-input class="q-mt-sm" v-model="nuit" label="NUIT" dense />
+          </div>
+        </div>
+        <div class="row q-col-gutter-x-md">
+          <div class="col-sm-6">
+            <q-input class="q-mt-sm" v-model="address" label="Endereço" dense />
+          </div>
+          <div class="col-sm-6">
+            <q-input class="q-mt-sm" v-model="phone" label="Telefone" dense />
+          </div>
+        </div>
+        <div class="row q-col-gutter-x-md">
+          <div class="col-sm-6">
+            <q-select
+              style="margin-top: 8px"
+              v-model="maritalstate"
+              :options="maritalstates"
+              label="Estado Civil"
+              dense
+            />
+          </div>
+          <!-- <div class="col-sm-6">
+            <q-input class="q-mt-sm" v-model="nuit" label="NUIT" dense />
+          </div> -->
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <q-input
+              type="textarea"
+              class="q-mt-sm"
+              v-model="description"
+              label="Descrição"
               dense
             />
           </div>
@@ -122,6 +159,7 @@ let firstname = ref();
 let lastname = ref();
 let position = ref();
 let stars = ref();
+let maritalstate = ref();
 
 const enableAddEmployee = () => {
   employeesForm.value = true;
@@ -179,6 +217,7 @@ onMounted(() => {
 });
 
 const positions = ref(["Administrador", "Registador", "Inspector"]);
+const maritalstates = ref(["Solteiro(a)", "Casado(a)", "Viúvo(a)"]);
 </script>
 <style scoped lang="scss">
 .add-btn {

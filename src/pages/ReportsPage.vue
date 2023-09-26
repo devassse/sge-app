@@ -3,7 +3,7 @@
     <div class="col q-pa-md">
       <q-table
         title="Relatório de Empresas"
-        :rows="rows"
+        :rows="companies"
         :columns="columnsCompany"
         row-key="name"
       >
@@ -17,7 +17,7 @@
     <div class="col q-pa-md">
       <q-table
         title="Relatório de Funcionários"
-        :rows="rows"
+        :rows="employees"
         :columns="columnsEmployes"
         row-key="name"
       >
@@ -31,16 +31,45 @@
   </q-page>
 </template>
 <script setup>
+import { onMounted, ref } from "vue";
 import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable";
+import logo from "../assets/logo/logo.png";
+import axios from "axios";
 
 const doc = new jsPDF();
+let employees = ref();
+let companies = ref();
 
 const downloadCompanyReport = () => {
-  doc.text("Hello world!", 10, 10);
+  autoTable(doc, {
+    body: companies.value,
+    columns: [
+      { header: "Nome de Empresas", dataKey: "name" },
+      { header: "Slogan", dataKey: "slogan" },
+      { header: "Reputação", dataKey: "stars" },
+      { header: "Descrição", dataKey: "description" },
+    ],
+    didDrawPage: function (data) {
+      doc.addImage(logo, "PNG", 15, 5, 8, 7);
+      doc.text(25, 10.2, "Relatório de Empresas");
+    },
+  });
   doc.save("empresas.pdf");
 };
 const downloadEmployeReport = () => {
-  doc.text("Hello world!", 10, 10);
+  autoTable(doc, {
+    body: employees.value,
+    columns: [
+      { header: "Primeiro Nome", dataKey: "firstname" },
+      { header: "Último Nome", dataKey: "lastname" },
+      { header: "Profissão", dataKey: "position" },
+    ],
+    didDrawPage: function (data) {
+      doc.addImage(logo, "PNG", 15, 5, 8, 7);
+      doc.text(25, 10.2, "Relatório de Funcionários");
+    },
+  });
   doc.save("funcionarios.pdf");
 };
 
@@ -58,7 +87,7 @@ const columnsCompany = [
     required: true,
     label: "Slug",
     align: "left",
-    field: (row) => row.name,
+    field: (row) => row.slogan,
     sortable: true,
   },
   {
@@ -66,7 +95,7 @@ const columnsCompany = [
     required: true,
     label: "Reputação",
     align: "left",
-    field: (row) => row.name,
+    field: (row) => row.stars,
     sortable: true,
   },
   {
@@ -74,35 +103,50 @@ const columnsCompany = [
     required: true,
     label: "Descrição",
     align: "left",
-    field: (row) => row.name,
+    field: (row) => row.description,
     sortable: true,
   },
 ];
 
 const columnsEmployes = [
   {
-    name: "name",
+    name: "firstname",
     required: true,
-    label: "Nome do Funcionário",
+    label: "Primeiro nome",
     align: "left",
-    field: (row) => row.name,
+    field: (row) => row.firstname,
     sortable: true,
   },
   {
-    name: "profissional",
+    name: "lastname",
+    required: true,
+    label: "Último nome",
+    align: "left",
+    field: (row) => row.lastname,
+    sortable: true,
+  },
+  {
+    name: "position",
     required: true,
     label: "Profissão",
     align: "left",
-    field: (row) => row.name,
-    sortable: true,
-  },
-  {
-    name: "rating",
-    required: true,
-    label: "Reputação",
-    align: "left",
-    field: (row) => row.name,
+    field: (row) => row.position,
     sortable: true,
   },
 ];
+
+const getCompanies = async () => {
+  const response = await axios.get("http://localhost:8080/company");
+  companies.value = response.data;
+};
+
+const getEmployees = async () => {
+  const response = await axios.get("http://localhost:8080/employee");
+  employees.value = response.data;
+};
+
+onMounted(() => {
+  getCompanies();
+  getEmployees();
+});
 </script>
